@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Listener
 {
-    public class Program
+    class Program
     {
         private static HttpListener listener;
         private static bool isRunning = true;
@@ -48,11 +48,22 @@ namespace Listener
                     // Wait for an incoming request
                     HttpListenerContext context = await listener.GetContextAsync();
 
-                    // Process the request
-                    string responseString = $"Hello, you requested: {context.Request.Url}";
-                    byte[] buffer = Encoding.UTF8.GetBytes(responseString);
+                    // Parse the request URL to get the resource path
+                    string resourcePath = context.Request.Url?.AbsolutePath.Trim('/');
+
+                    // Process the request based on the resource path
+                    string responseString = string.Empty;
+                    if (resourcePath == "MyName")
+                    {
+                        responseString = GetMyName();
+                    }
+                    else
+                    {
+                        responseString = $"Hello, you requested: {context.Request.Url}";
+                    }
 
                     // Send the response
+                    byte[] buffer = Encoding.UTF8.GetBytes(responseString);
                     context.Response.ContentLength64 = buffer.Length;
                     await context.Response.OutputStream.WriteAsync(buffer, 0, buffer.Length);
                     context.Response.OutputStream.Close();
@@ -61,9 +72,14 @@ namespace Listener
                 }
                 catch (HttpListenerException)
                 {
-                    // ignore for this sample application
+                    // Ignore if the listener is stopped
                 }
             }
+        }
+
+        private static string GetMyName()
+        {
+            return "Success!";
         }
     }
 }

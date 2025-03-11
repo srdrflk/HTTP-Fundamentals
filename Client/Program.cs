@@ -21,7 +21,7 @@ class Program
             try
             {
                 // Send a GET request to the listener
-                HttpResponseMessage response = await client.GetAsync("http://localhost:8888/");
+                HttpResponseMessage response = await client.GetAsync("http://localhost:8888/MyName/");
                 response.EnsureSuccessStatusCode(); // Throw an exception if the request fails
 
                 // Read and display the response

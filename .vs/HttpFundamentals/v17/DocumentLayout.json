@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{66858E8A-892F-4B25-AAA2-1DF28E375C3B}|Listener\\Listener.csproj|solutionrelative:listener\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E6D9F3-36B5-458F-A156-46B6A40EA105}|Client\\Client.csproj|c:\\users\\serdar_filik\\desktop\\dotnetbasicmentorprojects\\httpfundamentals\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{94E6D9F3-36B5-458F-A156-46B6A40EA105}|Client\\Client.csproj|C:\\Users\\Serdar_Filik\\Desktop\\DotNetBasicMentorProjects\\HttpFundamentals\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94E6D9F3-36B5-458F-A156-46B6A40EA105}|Client\\Client.csproj|solutionrelative:client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "Client\\Program.cs",
               "ToolTip": "C:\\Users\\Serdar_Filik\\Desktop\\DotNetBasicMentorProjects\\HttpFundamentals\\Client\\Program.cs",
               "RelativeToolTip": "Client\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAtAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T17:32:22.882Z",
               "EditorCaption": ""
@@ -69,7 +69,7 @@
               "RelativeDocumentMoniker": "Listener\\Program.cs",
               "ToolTip": "C:\\Users\\Serdar_Filik\\Desktop\\DotNetBasicMentorProjects\\HttpFundamentals\\Listener\\Program.cs",
               "RelativeToolTip": "Listener\\Program.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAQwD8AAAA5AAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAQwCoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T17:28:37.278Z",
               "EditorCaption": ""
