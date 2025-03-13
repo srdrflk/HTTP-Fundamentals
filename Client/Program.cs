@@ -13,6 +13,7 @@ class Program
         // URLs to request
         string[] urls = {
             "http://localhost:8888/MyName/",
+            "http://localhost:8888/MyNameByHeader/",
             "http://localhost:8888/Information/",
             "http://localhost:8888/Success/",
             "http://localhost:8888/Redirection/",
@@ -27,7 +28,22 @@ class Program
             {
                 HttpResponseMessage response = await client.GetAsync(url);
                 string responseBody = await response.Content.ReadAsStringAsync();
+
+                // Display status code and response body
                 Console.WriteLine($"URL: {url} - Status Code: {(int)response.StatusCode} ({response.StatusCode}) - Response: {responseBody}");
+
+                // For Task 3: Check if the URL is /MyNameByHeader/ and display the custom header
+                if (url.EndsWith("MyNameByHeader/"))
+                {
+                    if (response.Headers.TryGetValues("X-MyName", out var headerValues))
+                    {
+                        Console.WriteLine($"Header 'X-MyName': {string.Join(", ", headerValues)}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Header 'X-MyName' not found.");
+                    }
+                }
             }
             catch (HttpRequestException ex)
             {

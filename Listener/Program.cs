@@ -71,6 +71,11 @@ namespace Listener
                     responseString = GetMyName();
                     context.Response.StatusCode = (int)HttpStatusCode.OK; // 200 OK
                     break;
+                case "MyNameByHeader":
+                    responseString = "Your name is in the header.";
+                    context.Response.StatusCode = (int)HttpStatusCode.OK; // 200 OK
+                    context.Response.Headers.Add("X-MyName", GetMyName()); // Add custom header
+                    break;
                 case "Information":
                     context.Response.StatusCode = (int)HttpStatusCode.Continue; // 100 Continue
                     responseString = "Information - 100 Continue";
