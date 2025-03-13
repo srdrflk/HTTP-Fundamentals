@@ -14,6 +14,7 @@ class Program
         string[] urls = {
             "http://localhost:8888/MyName/",
             "http://localhost:8888/MyNameByHeader/",
+            "http://localhost:8888/MyNameByCookies/",
             "http://localhost:8888/Information/",
             "http://localhost:8888/Success/",
             "http://localhost:8888/Redirection/",
@@ -42,6 +43,25 @@ class Program
                     else
                     {
                         Console.WriteLine("Header 'X-MyName' not found.");
+                    }
+                }
+
+                // For Task 4: Check if the URL is /MyNameByCookies/ and display the cookie
+                if (url.EndsWith("MyNameByCookies/"))
+                {
+                    if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+                    {
+                        foreach (var cookie in cookieValues)
+                        {
+                            if (cookie.StartsWith("MyName="))
+                            {
+                                Console.WriteLine($"Cookie 'MyName': {cookie.Split('=')[1].Split(';')[0]}");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cookie 'MyName' not found.");
                     }
                 }
             }

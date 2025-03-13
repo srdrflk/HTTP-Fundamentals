@@ -76,6 +76,11 @@ namespace Listener
                     context.Response.StatusCode = (int)HttpStatusCode.OK; // 200 OK
                     context.Response.Headers.Add("X-MyName", GetMyName()); // Add custom header
                     break;
+                case "MyNameByCookies":
+                    responseString = "Your name is in the cookies.";
+                    context.Response.StatusCode = (int)HttpStatusCode.OK; // 200 OK
+                    context.Response.Cookies.Add(new Cookie("MyName", GetMyName())); // Add cookie
+                    break;
                 case "Information":
                     context.Response.StatusCode = (int)HttpStatusCode.Continue; // 100 Continue
                     responseString = "Information - 100 Continue";
