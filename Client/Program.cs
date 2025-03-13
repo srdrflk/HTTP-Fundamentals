@@ -8,29 +8,30 @@ class Program
     {
         using HttpClient client = new HttpClient();
 
-        Console.WriteLine("Client started. Press any key to send a request or 'exit' to quit.");
+        Console.WriteLine("Client started. Sending requests...");
 
-        while (true)
+        // URLs to request
+        string[] urls = {
+            "http://localhost:8888/MyName/",
+            "http://localhost:8888/Information/",
+            "http://localhost:8888/Success/",
+            "http://localhost:8888/Redirection/",
+            "http://localhost:8888/ClientError/",
+            "http://localhost:8888/ServerError/"
+        };
+
+        // Send requests and display responses
+        foreach (var url in urls)
         {
-            string input = Console.ReadLine();
-            if (input?.ToLower() == "exit")
-            {
-                break;
-            }
-
             try
             {
-                // Send a GET request to the listener
-                HttpResponseMessage response = await client.GetAsync("http://localhost:8888/MyName/");
-                response.EnsureSuccessStatusCode(); // Throw an exception if the request fails
-
-                // Read and display the response
+                HttpResponseMessage response = await client.GetAsync(url);
                 string responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Response: {responseBody}");
+                Console.WriteLine($"URL: {url} - Status Code: {(int)response.StatusCode} ({response.StatusCode}) - Response: {responseBody}");
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine($"Request failed: {ex.Message}");
+                Console.WriteLine($"Request to {url} failed: {ex.Message}");
             }
         }
 
